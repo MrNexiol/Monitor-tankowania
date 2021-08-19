@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Lab 11–15</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_vehicle">Add vehicle</string>
 </resources>
