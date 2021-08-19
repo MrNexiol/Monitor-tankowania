@@ -1,8 +1,8 @@
-package tomasz.kopycinski.lab_11_15.ui.vehicleFragment
+package tomasz.kopycinski.lab_11_15.ui.vehicleList
 
 import androidx.lifecycle.ViewModel
 import tomasz.kopycinski.lab_11_15.AppContainer
 
-class VehicleFragmentViewModel : ViewModel() {
+class VehicleListFragmentViewModel : ViewModel() {
     val vehicleList = AppContainer.repository.getVehicles()
 }

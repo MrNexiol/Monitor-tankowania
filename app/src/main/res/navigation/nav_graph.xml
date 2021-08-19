@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/vehicleFragment"
-        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleFragment.VehicleFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleList.VehicleListFragment"
         android:label="fragment_vehicle"
-        tools:layout="@layout/fragment_vehicle" />
+        tools:layout="@layout/fragment_vehicle" >
+        <action
+            android:id="@+id/action_vehicleFragment_to_vehicleCreateFragment"
+            app:destination="@id/vehicleCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleCreateFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleCreate.VehicleCreateFragment"
+        android:label="fragment_vehicle_create"
+        tools:layout="@layout/fragment_vehicle_create" />
 </navigation>

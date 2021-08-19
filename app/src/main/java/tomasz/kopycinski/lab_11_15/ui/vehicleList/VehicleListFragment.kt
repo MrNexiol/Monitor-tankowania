@@ -1,13 +1,13 @@
-package tomasz.kopycinski.lab_11_15.ui.vehicleFragment
+package tomasz.kopycinski.lab_11_15.ui.vehicleList
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleBinding
 
-class VehicleFragment : Fragment() {
+class VehicleListFragment : Fragment() {
     private var _binding: FragmentVehicleBinding? = null
     private val binding get() = _binding!!
 
@@ -28,7 +28,8 @@ class VehicleFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.action_add -> {
-                Toast.makeText(context, "Działa", Toast.LENGTH_LONG).show()
+                val action = VehicleListFragmentDirections.actionVehicleFragmentToVehicleCreateFragment()
+                findNavController().navigate(action)
                 true
             }
             else -> super.onOptionsItemSelected(item)
