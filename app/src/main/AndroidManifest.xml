@@ -3,6 +3,7 @@
     package="tomasz.kopycinski.lab_11_15">
 
     <application
+        android:name=".PetrolApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
