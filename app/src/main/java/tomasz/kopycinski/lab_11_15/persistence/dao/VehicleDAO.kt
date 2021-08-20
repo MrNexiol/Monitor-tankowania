@@ -2,6 +2,7 @@ package tomasz.kopycinski.lab_11_15.persistence.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 
@@ -9,4 +10,7 @@ import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 interface VehicleDAO {
     @Query("SELECT * FROM Vehicle")
     fun getAll(): LiveData<List<Vehicle>>
+
+    @Insert
+    fun insert(vehicle: Vehicle)
 }
