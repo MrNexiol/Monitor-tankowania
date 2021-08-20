@@ -21,6 +21,8 @@ class VehicleListAdapter : RecyclerView.Adapter<VehicleListAdapter.ViewHolder>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.vehicleBrand.text = data[position].brand
+        holder.binding.vehicleModel.text = data[position].model
+        holder.binding.vehiclePlate.text = data[position].licensePlate
     }
 
     override fun getItemCount(): Int {

@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/fragment_vehicle.xml" value="0.15715579710144928" />
-        <entry key="app/src/main/res/layout/vehicle_recycler_item.xml" value="0.1911231884057971" />
+        <entry key="app/src/main/res/layout/vehicle_recycler_item.xml" value="0.5" />
       </map>
     </option>
   </component>
