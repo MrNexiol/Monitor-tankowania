@@ -13,10 +13,22 @@
         <action
             android:id="@+id/action_vehicleFragment_to_vehicleCreateFragment"
             app:destination="@id/vehicleCreateFragment" />
+        <action
+            android:id="@+id/action_vehicleFragment_to_vehicleDetailsFragment"
+            app:destination="@id/vehicleDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleCreateFragment"
         android:name="tomasz.kopycinski.lab_11_15.ui.vehicleCreate.VehicleCreateFragment"
         android:label="fragment_vehicle_create"
         tools:layout="@layout/fragment_vehicle_create" />
+    <fragment
+        android:id="@+id/vehicleDetailsFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleDetails.VehicleDetailsFragment"
+        android:label="fragment_vehicle_details"
+        tools:layout="@layout/fragment_vehicle_details" >
+        <argument
+            android:name="vehicleId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
