@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Vehicle(
-    @PrimaryKey val uid: Int,
     @ColumnInfo(name = "brand") val brand: String?,
     @ColumnInfo(name = "model") val model: String?,
     @ColumnInfo(name = "licensePlate") val licensePlate: String?,
     @ColumnInfo(name = "date") val date: Long?,
+    @PrimaryKey(autoGenerate = true) val uid: Int = 0
 )
