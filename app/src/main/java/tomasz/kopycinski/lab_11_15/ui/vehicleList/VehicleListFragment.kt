@@ -14,7 +14,6 @@ class VehicleListFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: VehicleListFragmentViewModel by viewModels()
     private val adapter = VehicleListAdapter()
-    private val layoutManager = LinearLayoutManager(context)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +22,15 @@ class VehicleListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentVehicleBinding.inflate(layoutInflater, container, false)
+
+        binding.vehiclesRecycler.adapter = adapter
+        binding.vehiclesRecycler.layoutManager = LinearLayoutManager(context)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.vehiclesRecycler.adapter = adapter
-        binding.vehiclesRecycler.layoutManager = layoutManager
 
         viewModel.vehicleList.observe(viewLifecycleOwner, {
             adapter.setData(it)
