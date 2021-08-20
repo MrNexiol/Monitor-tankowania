@@ -8,4 +8,8 @@ class Repository(private val vehicleDAO: VehicleDAO) {
     fun getVehicles(): LiveData<List<Vehicle>> {
         return vehicleDAO.getAll()
     }
+
+    suspend fun insertVehicle(vehicle: Vehicle) {
+        vehicleDAO.insert(vehicle)
+    }
 }

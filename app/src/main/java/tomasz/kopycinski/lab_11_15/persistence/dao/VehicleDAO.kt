@@ -12,5 +12,5 @@ interface VehicleDAO {
     fun getAll(): LiveData<List<Vehicle>>
 
     @Insert
-    fun insert(vehicle: Vehicle)
+    suspend fun insert(vehicle: Vehicle)
 }
