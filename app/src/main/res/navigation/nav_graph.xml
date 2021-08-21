@@ -14,6 +14,9 @@
             android:name="vehicleId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_vehicleDetailsFragment_to_vehicleFormFragment"
+            app:destination="@id/vehicleFormFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleListFragment"
@@ -31,5 +34,9 @@
         android:id="@+id/vehicleFormFragment"
         android:name="tomasz.kopycinski.lab_11_15.ui.vehicleCreate.VehicleFormFragment"
         android:label="fragment_vehicle_form"
-        tools:layout="@layout/fragment_vehicle_form" />
+        tools:layout="@layout/fragment_vehicle_form" >
+        <argument android:name="vehicleId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

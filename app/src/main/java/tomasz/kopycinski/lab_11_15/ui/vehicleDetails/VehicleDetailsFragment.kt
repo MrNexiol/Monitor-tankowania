@@ -48,6 +48,11 @@ class VehicleDetailsFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
+            R.id.edit_vehicle -> {
+                val action = VehicleDetailsFragmentDirections.actionVehicleDetailsFragmentToVehicleFormFragment(vehicle.uid)
+                findNavController().navigate(action)
+                true
+            }
             R.id.remove_vehicle -> {
                 vehicle.let {
                     viewModel.deleteVehicle(it)

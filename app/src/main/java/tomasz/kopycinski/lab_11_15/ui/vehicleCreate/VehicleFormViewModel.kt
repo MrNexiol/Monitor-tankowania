@@ -6,7 +6,9 @@ import kotlinx.coroutines.launch
 import tomasz.kopycinski.lab_11_15.AppContainer
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 
-class VehicleFormViewModel : ViewModel() {
+class VehicleFormViewModel(vehicleId: Int) : ViewModel() {
+    val vehicle = AppContainer.repository.getVehicle(vehicleId)
+
     fun insertVehicle(vehicle: Vehicle) = viewModelScope.launch {
         AppContainer.repository.insertVehicle(vehicle)
     }
