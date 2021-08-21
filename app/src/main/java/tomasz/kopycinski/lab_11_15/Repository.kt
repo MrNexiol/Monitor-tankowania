@@ -16,4 +16,8 @@ class Repository(private val vehicleDAO: VehicleDAO) {
     suspend fun insertVehicle(vehicle: Vehicle) {
         vehicleDAO.insert(vehicle)
     }
+
+    suspend fun deleteVehicle(vehicle: Vehicle) {
+        vehicleDAO.delete(vehicle)
+    }
 }

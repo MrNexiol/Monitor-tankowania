@@ -1,21 +1,27 @@
 package tomasz.kopycinski.lab_11_15.ui.vehicleDetails
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleDetailsBinding
+import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 
 class VehicleDetailsFragment : Fragment() {
     private var _binding: FragmentVehicleDetailsBinding? = null
     private val binding get() = _binding!!
     private val navArgs: VehicleDetailsFragmentArgs by navArgs()
+    private lateinit var vehicle: Vehicle
     private lateinit var viewModel: VehicleDetailsViewModel
     private lateinit var viewModelFactory: VehicleDetailsViewModelFactory
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +37,25 @@ class VehicleDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.vehicle.observe(viewLifecycleOwner, {
+            vehicle = it
             binding.brandTextView.text = it.brand
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.vehicle_details_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.remove_vehicle -> {
+                vehicle.let {
+                    viewModel.deleteVehicle(it)
+                    findNavController().navigateUp()
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

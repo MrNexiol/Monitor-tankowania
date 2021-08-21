@@ -2,6 +2,7 @@ package tomasz.kopycinski.lab_11_15.persistence.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
@@ -16,4 +17,7 @@ interface VehicleDAO {
 
     @Insert
     suspend fun insert(vehicle: Vehicle)
+
+    @Delete
+    suspend fun delete(vehicle: Vehicle)
 }
