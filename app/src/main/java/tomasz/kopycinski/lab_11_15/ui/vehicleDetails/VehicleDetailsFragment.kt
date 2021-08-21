@@ -2,6 +2,7 @@ package tomasz.kopycinski.lab_11_15.ui.vehicleDetails
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -40,6 +41,11 @@ class VehicleDetailsFragment : Fragment() {
             vehicle = it
             binding.brandTextView.text = it.brand
         })
+
+        binding.addRefuellingButton.setOnClickListener {
+            val action = VehicleDetailsFragmentDirections.actionVehicleDetailsFragmentToRefuellingForm()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
