@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/vehicleFormFragment"
-        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleCreate.VehicleFormFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleForm.VehicleFormFragment"
         android:label="fragment_vehicle_form"
         tools:layout="@layout/fragment_vehicle_form" >
         <argument android:name="vehicleId"

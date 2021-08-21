@@ -1,4 +1,4 @@
-package tomasz.kopycinski.lab_11_15.ui.vehicleCreate
+package tomasz.kopycinski.lab_11_15.ui.vehicleForm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
