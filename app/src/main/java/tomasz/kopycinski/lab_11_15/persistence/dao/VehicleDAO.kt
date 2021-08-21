@@ -11,6 +11,9 @@ interface VehicleDAO {
     @Query("SELECT * FROM Vehicle")
     fun getAll(): LiveData<List<Vehicle>>
 
+    @Query("SELECT * FROM vehicle WHERE uid = :id LIMIT 1")
+    fun get(id: Int): LiveData<Vehicle>
+
     @Insert
     suspend fun insert(vehicle: Vehicle)
 }

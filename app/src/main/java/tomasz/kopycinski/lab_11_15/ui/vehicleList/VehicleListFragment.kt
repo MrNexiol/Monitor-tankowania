@@ -7,12 +7,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import tomasz.kopycinski.lab_11_15.R
-import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleBinding
+import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleListBinding
 
 class VehicleListFragment : Fragment() {
-    private var _binding: FragmentVehicleBinding? = null
+    private var _binding: FragmentVehicleListBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: VehicleListFragmentViewModel by viewModels()
+    private val viewModel: VehicleListViewModel by viewModels()
     private val adapter = VehicleListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class VehicleListFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentVehicleBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentVehicleListBinding.inflate(layoutInflater, container, false)
 
         binding.vehiclesRecycler.adapter = adapter
         binding.vehiclesRecycler.layoutManager = LinearLayoutManager(context)
@@ -44,7 +44,7 @@ class VehicleListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.action_add -> {
-                val action = VehicleListFragmentDirections.actionVehicleFragmentToVehicleCreateFragment()
+                val action = VehicleListFragmentDirections.actionVehicleListFragmentToVehicleCreateFragment()
                 findNavController().navigate(action)
                 true
             }

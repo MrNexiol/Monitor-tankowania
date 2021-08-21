@@ -26,7 +26,7 @@ class VehicleListAdapter : RecyclerView.Adapter<VehicleListAdapter.ViewHolder>()
         holder.binding.vehiclePlate.text = data[position].licensePlate
 
         holder.binding.root.setOnClickListener {
-            val action = VehicleListFragmentDirections.actionVehicleFragmentToVehicleDetailsFragment(data[position].uid)
+            val action = VehicleListFragmentDirections.actionVehicleListFragmentToVehicleDetailsFragment(data[position].uid)
             it.findNavController().navigate(action)
         }
     }

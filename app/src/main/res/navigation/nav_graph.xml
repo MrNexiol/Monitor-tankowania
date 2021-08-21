@@ -3,20 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/vehicleFragment">
+    app:startDestination="@id/vehicleListFragment">
 
-    <fragment
-        android:id="@+id/vehicleFragment"
-        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleList.VehicleListFragment"
-        android:label="fragment_vehicle"
-        tools:layout="@layout/fragment_vehicle" >
-        <action
-            android:id="@+id/action_vehicleFragment_to_vehicleCreateFragment"
-            app:destination="@id/vehicleCreateFragment" />
-        <action
-            android:id="@+id/action_vehicleFragment_to_vehicleDetailsFragment"
-            app:destination="@id/vehicleDetailsFragment" />
-    </fragment>
     <fragment
         android:id="@+id/vehicleCreateFragment"
         android:name="tomasz.kopycinski.lab_11_15.ui.vehicleCreate.VehicleCreateFragment"
@@ -29,6 +17,19 @@
         tools:layout="@layout/fragment_vehicle_details" >
         <argument
             android:name="vehicleId"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleListFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.vehicleList.VehicleListFragment"
+        android:label="fragment_vehicle"
+        tools:layout="@layout/fragment_vehicle_list" >
+        <action
+            android:id="@+id/action_vehicleListFragment_to_vehicleCreateFragment"
+            app:destination="@id/vehicleCreateFragment" />
+        <action
+            android:id="@+id/action_vehicleListFragment_to_vehicleDetailsFragment"
+            app:destination="@id/vehicleDetailsFragment" />
     </fragment>
 </navigation>

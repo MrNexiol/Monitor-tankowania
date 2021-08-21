@@ -9,6 +9,10 @@ class Repository(private val vehicleDAO: VehicleDAO) {
         return vehicleDAO.getAll()
     }
 
+    fun getVehicle(id: Int): LiveData<Vehicle> {
+        return vehicleDAO.get(id)
+    }
+
     suspend fun insertVehicle(vehicle: Vehicle) {
         vehicleDAO.insert(vehicle)
     }
