@@ -7,5 +7,6 @@
     <string name="brand">Marka</string>
     <string name="model">Model</string>
     <string name="plate_number">Numer rejestracyjny</string>
-    <string name="add">Dodaj</string>
+    <string name="save">Zapisz</string>
+    <string name="empty_fields">Wypełnij wszystkie pola</string>
 </resources>

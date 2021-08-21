@@ -13,6 +13,10 @@ class Repository(private val vehicleDAO: VehicleDAO) {
         return vehicleDAO.get(id)
     }
 
+    suspend fun updateVehicle(vehicle: Vehicle) {
+        vehicleDAO.update(vehicle)
+    }
+
     suspend fun insertVehicle(vehicle: Vehicle) {
         vehicleDAO.insert(vehicle)
     }

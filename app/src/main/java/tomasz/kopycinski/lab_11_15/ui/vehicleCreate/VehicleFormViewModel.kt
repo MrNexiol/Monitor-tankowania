@@ -12,4 +12,8 @@ class VehicleFormViewModel(vehicleId: Int) : ViewModel() {
     fun insertVehicle(vehicle: Vehicle) = viewModelScope.launch {
         AppContainer.repository.insertVehicle(vehicle)
     }
+
+    fun updateVehicle(vehicle: Vehicle) = viewModelScope.launch {
+        AppContainer.repository.updateVehicle(vehicle)
+    }
 }
