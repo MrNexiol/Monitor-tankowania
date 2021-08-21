@@ -7,16 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleCreateBinding
+import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleFormBinding
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 
-class VehicleCreateFragment : Fragment() {
-    private var _binding: FragmentVehicleCreateBinding? = null
+class VehicleFormFragment : Fragment() {
+    private var _binding: FragmentVehicleFormBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: VehicleCreateViewModel by viewModels()
+    private val viewModel: VehicleFormViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentVehicleCreateBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentVehicleFormBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

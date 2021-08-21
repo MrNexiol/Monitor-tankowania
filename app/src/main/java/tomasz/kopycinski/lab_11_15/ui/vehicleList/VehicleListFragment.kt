@@ -44,7 +44,7 @@ class VehicleListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.action_add -> {
-                val action = VehicleListFragmentDirections.actionVehicleListFragmentToVehicleCreateFragment()
+                val action = VehicleListFragmentDirections.actionVehicleListFragmentToVehicleFormFragment()
                 findNavController().navigate(action)
                 true
             }
