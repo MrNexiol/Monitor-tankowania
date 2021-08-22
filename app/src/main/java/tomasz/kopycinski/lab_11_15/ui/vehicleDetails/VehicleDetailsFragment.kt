@@ -37,9 +37,9 @@ class VehicleDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.vehicle.observe(viewLifecycleOwner, {
-            vehicle = it
-            binding.brandTextView.text = it.brand
+        viewModel.vehicleWithRefuellings.observe(viewLifecycleOwner, {
+            vehicle = it.vehicle
+            binding.brandTextView.text = it.vehicle.brand
         })
 
         binding.addRefuellingButton.setOnClickListener {

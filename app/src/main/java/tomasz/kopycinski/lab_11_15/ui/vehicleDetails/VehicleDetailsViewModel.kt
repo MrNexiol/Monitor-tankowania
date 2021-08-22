@@ -9,6 +9,8 @@ import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 class VehicleDetailsViewModel(vehicleId: Int) : ViewModel() {
     val vehicle = AppContainer.repository.getVehicle(vehicleId)
 
+    val vehicleWithRefuellings = AppContainer.repository.getVehicleWithRefuellings(vehicleId)
+
     fun deleteVehicle(vehicle: Vehicle) = viewModelScope.launch {
         AppContainer.repository.deleteVehicle(vehicle)
     }

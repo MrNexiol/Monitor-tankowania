@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import tomasz.kopycinski.lab_11_15.persistence.dao.VehicleDAO
+import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 
-@Database(entities = [Vehicle::class], version = 1)
+@Database(entities = [Vehicle::class, Refueling::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun vehicleDao(): VehicleDAO
