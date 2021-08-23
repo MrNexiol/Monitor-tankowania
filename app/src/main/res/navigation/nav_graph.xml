@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/refuellingForm"
-        android:name="tomasz.kopycinski.lab_11_15.ui.refuellingForm.RefuellingForm"
+        android:name="tomasz.kopycinski.lab_11_15.ui.refuellingForm.RefuellingFormFragment"
         android:label="fragment_refuelling_form"
         tools:layout="@layout/fragment_refuelling_form" />
 </navigation>

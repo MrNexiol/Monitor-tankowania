@@ -8,6 +8,12 @@
     <string name="brand">Marka</string>
     <string name="model">Model</string>
     <string name="plate_number">Numer rejestracyjny</string>
+    <string name="date">Data</string>
+    <string name="price">Cena</string>
+    <string name="price_per_liter">Cena za litr</string>
+    <string name="place">Miejsce tankowania</string>
+    <string name="mileage">Przebieg</string>
     <string name="save">Zapisz</string>
     <string name="empty_fields">Wypełnij wszystkie pola</string>
+    <string name="date_format">%1$d.%2$d.%3$d r.</string>
 </resources>
