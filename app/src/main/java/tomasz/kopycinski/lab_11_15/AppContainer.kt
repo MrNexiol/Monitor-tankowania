@@ -9,6 +9,6 @@ object AppContainer {
 
     fun init(context: Context) {
         database = AppDatabase.getDatabase(context)
-        repository = Repository(database.vehicleDao())
+        repository = Repository(database.vehicleDao(), database.refuellingDao())
     }
 }

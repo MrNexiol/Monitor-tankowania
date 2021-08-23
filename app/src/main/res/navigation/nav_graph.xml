@@ -46,5 +46,10 @@
         android:id="@+id/refuellingForm"
         android:name="tomasz.kopycinski.lab_11_15.ui.refuellingForm.RefuellingFormFragment"
         android:label="fragment_refuelling_form"
-        tools:layout="@layout/fragment_refuelling_form" />
+        tools:layout="@layout/fragment_refuelling_form" >
+        <argument
+            android:name="vehicleId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

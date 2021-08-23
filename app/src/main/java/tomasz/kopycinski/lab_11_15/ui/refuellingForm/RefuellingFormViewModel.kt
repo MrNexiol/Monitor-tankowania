@@ -1,17 +1,16 @@
 package tomasz.kopycinski.lab_11_15.ui.refuellingForm
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import tomasz.kopycinski.lab_11_15.AppContainer
+import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
 import java.util.*
 
 class RefuellingFormViewModel : ViewModel() {
-    var year: Int = 0
-    var month: Int = 0
-    var day: Int = 0
+    val calendar: Calendar = Calendar.getInstance()
 
-    init {
-        val calendar = Calendar.getInstance()
-        year = calendar.get(Calendar.YEAR)
-        month = calendar.get(Calendar.MONTH)
-        day = calendar.get(Calendar.DAY_OF_MONTH)
+    fun insertRefuelling(refueling: Refueling) = viewModelScope.launch {
+        AppContainer.repository.insertRefuelling(refueling)
     }
 }

@@ -1,11 +1,14 @@
 package tomasz.kopycinski.lab_11_15
 
 import androidx.lifecycle.LiveData
+import tomasz.kopycinski.lab_11_15.persistence.dao.RefuellingDAO
 import tomasz.kopycinski.lab_11_15.persistence.dao.VehicleDAO
+import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 import tomasz.kopycinski.lab_11_15.persistence.entity.VehicleWithRefuellings
 
-class Repository(private val vehicleDAO: VehicleDAO) {
+class Repository(private val vehicleDAO: VehicleDAO,
+                 private val refuellingDAO: RefuellingDAO) {
     fun getVehicles(): LiveData<List<Vehicle>> {
         return vehicleDAO.getAll()
     }
@@ -28,5 +31,9 @@ class Repository(private val vehicleDAO: VehicleDAO) {
 
     suspend fun deleteVehicle(vehicle: Vehicle) {
         vehicleDAO.delete(vehicle)
+    }
+
+    suspend fun insertRefuelling(refueling: Refueling) {
+        refuellingDAO.insert(refueling)
     }
 }

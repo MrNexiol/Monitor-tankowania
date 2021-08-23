@@ -43,7 +43,7 @@ class VehicleDetailsFragment : Fragment() {
         })
 
         binding.addRefuellingButton.setOnClickListener {
-            val action = VehicleDetailsFragmentDirections.actionVehicleDetailsFragmentToRefuellingForm()
+            val action = VehicleDetailsFragmentDirections.actionVehicleDetailsFragmentToRefuellingForm(navArgs.vehicleId)
             findNavController().navigate(action)
         }
     }
