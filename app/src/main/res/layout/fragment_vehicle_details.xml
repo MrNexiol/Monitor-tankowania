@@ -9,11 +9,106 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/brand_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/brand"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/model_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/model_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/model"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/brand_text_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/brand_text_view"
+        app:layout_constraintStart_toStartOf="@+id/brand_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/brand_text_view" />
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/model_text_view"
+        app:layout_constraintStart_toStartOf="@+id/model_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/model_text_view" />
+
+    <TextView
+        android:id="@+id/license_plate_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/plate_number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brand" />
+
+    <TextView
+        android:id="@+id/license_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/license_plate_text_view"
+        app:layout_constraintStart_toStartOf="@+id/license_plate_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/license_plate_text_view" />
+
+    <TextView
+        android:id="@+id/check_date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/check_date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/license_plate" />
+
+    <TextView
+        android:id="@+id/check_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/check_date_text_view"
+        app:layout_constraintStart_toStartOf="@+id/check_date_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/check_date_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_list_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/refuelling_list"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_date" />
+
+    <View
+        android:id="@+id/refuelling_list_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_list_text_view"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/refuellings_recycler_view"
@@ -22,7 +117,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/brand_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_list_header_divider" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_refuelling_button"

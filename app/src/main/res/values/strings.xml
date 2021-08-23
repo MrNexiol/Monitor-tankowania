@@ -5,6 +5,8 @@
     <string name="edit_vehicle">Edytuj pojazd</string>
     <string name="remove_vehicle">Usuń pojazd</string>
     <string name="add_refuelling">Dodaj tankowanie</string>
+    <string name="check_date">Data przeglądu</string>
+    <string name="refuelling_list">Lista tankowań</string>
     <string name="brand">Marka</string>
     <string name="model">Model</string>
     <string name="plate_number">Numer rejestracyjny</string>

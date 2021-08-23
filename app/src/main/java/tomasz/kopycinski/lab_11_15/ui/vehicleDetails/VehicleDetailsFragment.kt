@@ -46,7 +46,10 @@ class VehicleDetailsFragment : Fragment() {
 
         viewModel.vehicleWithRefuellings.observe(viewLifecycleOwner, {
             vehicle = it.vehicle
-            binding.brandTextView.text = it.vehicle.brand
+            binding.brand.text = it.vehicle.brand
+            binding.model.text = it.vehicle.model
+            binding.licensePlate.text = it.vehicle.licensePlate
+            binding.checkDate.text = it.vehicle.date.toString()
             adapter.setData(it.refuellings)
         })
 
