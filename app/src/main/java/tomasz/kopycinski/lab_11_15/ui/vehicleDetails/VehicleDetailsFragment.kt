@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleDetailsBinding
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
@@ -15,6 +16,7 @@ class VehicleDetailsFragment : Fragment() {
     private var _binding: FragmentVehicleDetailsBinding? = null
     private val binding get() = _binding!!
     private val navArgs: VehicleDetailsFragmentArgs by navArgs()
+    private val adapter: VehicleDetailsAdapter = VehicleDetailsAdapter()
     private lateinit var vehicle: Vehicle
     private lateinit var viewModel: VehicleDetailsViewModel
     private lateinit var viewModelFactory: VehicleDetailsViewModelFactory
@@ -29,8 +31,13 @@ class VehicleDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentVehicleDetailsBinding.inflate(inflater, container, false)
+
         viewModelFactory = VehicleDetailsViewModelFactory(navArgs.vehicleId)
         viewModel = ViewModelProvider(this, viewModelFactory).get(VehicleDetailsViewModel::class.java)
+
+        binding.refuellingsRecyclerView.adapter = adapter
+        binding.refuellingsRecyclerView.layoutManager = LinearLayoutManager(context)
+
         return binding.root
     }
 
@@ -40,6 +47,7 @@ class VehicleDetailsFragment : Fragment() {
         viewModel.vehicleWithRefuellings.observe(viewLifecycleOwner, {
             vehicle = it.vehicle
             binding.brandTextView.text = it.vehicle.brand
+            adapter.setData(it.refuellings)
         })
 
         binding.addRefuellingButton.setOnClickListener {
