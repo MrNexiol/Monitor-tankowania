@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleFormBinding
@@ -58,6 +59,7 @@ class VehicleFormFragment : Fragment() {
                 } else {
                     val vehicleToSave = Vehicle(brand, model, plateNumber, LocalDate.now())
                     viewModel.insertVehicle(vehicleToSave)
+                    findNavController().navigateUp()
                 }
             }
         }

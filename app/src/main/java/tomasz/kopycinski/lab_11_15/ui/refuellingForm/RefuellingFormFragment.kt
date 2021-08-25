@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentRefuellingFormBinding
@@ -54,6 +55,7 @@ class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
             val refuelling = Refueling(navArgs.vehicleId, viewModel.localDate, price, pricePerLiter, place, mileage)
             viewModel.insertRefuelling(refuelling)
+            findNavController().navigateUp()
         }
     }
 

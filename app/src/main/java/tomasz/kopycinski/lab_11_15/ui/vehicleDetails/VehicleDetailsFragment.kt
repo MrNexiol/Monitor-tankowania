@@ -45,10 +45,13 @@ class VehicleDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.vehicleWithRefuellings.observe(viewLifecycleOwner, {
+            vehicle = it.vehicle
             val adapterList = mutableListOf<Any>()
             adapterList.add(it.vehicle)
 
-            val refuellingsGroupedByMonth = it.refuellings.reversed().groupBy { refuelling -> Pair(refuelling.date.monthValue, refuelling.date.year) }
+            val refuellingsGroupedByMonth = it.refuellings
+                .sortedByDescending { refuelling -> refuelling.date }
+                .groupBy { refuelling -> Pair(refuelling.date.monthValue, refuelling.date.year) }
 
             for ((pair, refuellings) in refuellingsGroupedByMonth) {
                 var monthPrice = 0.0
