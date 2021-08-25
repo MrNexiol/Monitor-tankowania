@@ -48,6 +48,11 @@ class VehicleListFragment : Fragment() {
                 findNavController().navigate(action)
                 true
             }
+            R.id.action_statistics -> {
+                val action = VehicleListFragmentDirections.actionVehicleListFragmentToStatisticsFragment()
+                findNavController().navigate(action)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

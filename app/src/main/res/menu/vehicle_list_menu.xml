@@ -6,4 +6,10 @@
         android:icon="@drawable/add"
         android:title="@string/add"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_statistics"
+        android:icon="@drawable/statistics"
+        android:title="@string/statistics"
+        app:showAsAction="ifRoom"/>
 </menu>

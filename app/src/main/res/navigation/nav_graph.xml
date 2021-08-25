@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_vehicleListFragment_to_vehicleFormFragment"
             app:destination="@id/vehicleFormFragment" />
+        <action
+            android:id="@+id/action_vehicleListFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleFormFragment"
@@ -71,4 +74,9 @@
             android:id="@+id/action_refuellingDetailsFragment_to_refuellingForm"
             app:destination="@id/refuellingForm" />
     </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.statistics.StatisticsFragment"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
 </navigation>
