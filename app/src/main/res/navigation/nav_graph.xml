@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_vehicleDetailsFragment_to_refuellingForm"
             app:destination="@id/refuellingForm" />
+        <action
+            android:id="@+id/action_vehicleDetailsFragment_to_refuellingDetailsFragment"
+            app:destination="@id/refuellingDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleListFragment"
@@ -51,5 +54,14 @@
             android:name="vehicleId"
             app:argType="integer"
             android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/refuellingDetailsFragment"
+        android:name="tomasz.kopycinski.lab_11_15.ui.refuellingDetails.RefuellingDetailsFragment"
+        android:label="fragment_refuelling_details"
+        tools:layout="@layout/fragment_refuelling_details" >
+        <argument
+            android:name="refuellingId"
+            app:argType="integer" />
     </fragment>
 </navigation>

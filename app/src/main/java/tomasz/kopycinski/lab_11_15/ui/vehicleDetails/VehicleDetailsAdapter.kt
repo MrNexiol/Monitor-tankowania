@@ -3,6 +3,7 @@ package tomasz.kopycinski.lab_11_15.ui.vehicleDetails
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.RefuellingHeaderRecyclerViewBinding
@@ -62,6 +63,11 @@ class VehicleDetailsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 holder.binding.dateTextView.text = item.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
                 holder.binding.placeTextView.text = item.place
                 holder.binding.priceTextView.text = holder.binding.root.resources.getString(R.string.currency, item.price)
+
+                holder.binding.root.setOnClickListener {
+                    val action = VehicleDetailsFragmentDirections.actionVehicleDetailsFragmentToRefuellingDetailsFragment(item.uid)
+                    holder.binding.root.findNavController().navigate(action)
+                }
             }
             is HeaderViewHolder -> {
                 val item = data[position] as RefuellingHeader
