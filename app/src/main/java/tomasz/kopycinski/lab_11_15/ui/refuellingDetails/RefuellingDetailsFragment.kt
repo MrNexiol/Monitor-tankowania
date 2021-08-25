@@ -58,7 +58,7 @@ class RefuellingDetailsFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.edit_item -> {
-                val action = RefuellingDetailsFragmentDirections.actionRefuellingDetailsFragmentToRefuellingForm(navArgs.refuellingId)
+                val action = RefuellingDetailsFragmentDirections.actionRefuellingDetailsFragmentToRefuellingForm(navArgs.refuellingId, navArgs.refuellingId)
                 findNavController().navigate(action)
                 true
             }

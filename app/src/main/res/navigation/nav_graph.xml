@@ -54,6 +54,10 @@
             android:name="vehicleId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <argument
+            android:name="refuellingId"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
     <fragment
         android:id="@+id/refuellingDetailsFragment"

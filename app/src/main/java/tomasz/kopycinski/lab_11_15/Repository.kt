@@ -45,6 +45,10 @@ class Repository(private val vehicleDAO: VehicleDAO,
         refuellingDAO.insert(refueling)
     }
 
+    suspend fun updateRefuelling(refueling: Refueling) {
+        refuellingDAO.update(refueling)
+    }
+
     suspend fun removeRefuelling(refueling: Refueling) {
         refuellingDAO.delete(refueling)
     }
