@@ -1,11 +1,10 @@
 package tomasz.kopycinski.lab_11_15.ui.refuellingDetails
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentRefuellingDetailsBinding
@@ -17,6 +16,11 @@ class RefuellingDetailsFragment : Fragment() {
     private val navArgs: RefuellingDetailsFragmentArgs by navArgs()
     private lateinit var viewModel: RefuellingDetailsViewModel
     private lateinit var viewModelFactory: RefuellingDetailsViewModelFactory
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,5 +46,23 @@ class RefuellingDetailsFragment : Fragment() {
             binding.refuellingDate.text = refuelling.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
             binding.refuellingDistance.text = getString(R.string.distance_unit, refuelling.distanceSinceRefuelled)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.vehicle_details_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.edit_item -> {
+                val action = RefuellingDetailsFragmentDirections.actionRefuellingDetailsFragmentToRefuellingForm(navArgs.refuellingId)
+                findNavController().navigate(action)
+                true
+            }
+            R.id.remove_item -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">Lab 11–15</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_vehicle">Dodaj pojazd</string>
-    <string name="edit_vehicle">Edytuj pojazd</string>
-    <string name="remove_vehicle">Usuń pojazd</string>
-    <string name="add_refuelling">Dodaj tankowanie</string>
+    <string name="edit">Edytuj</string>
+    <string name="remove">Usuń</string>
+    <string name="add">Dodaj</string>
     <string name="check_date">Data przeglądu</string>
     <string name="refuelling_list">Lista tankowań</string>
     <string name="brand">Marka</string>

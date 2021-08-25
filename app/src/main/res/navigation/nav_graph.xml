@@ -63,5 +63,8 @@
         <argument
             android:name="refuellingId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_refuellingDetailsFragment_to_refuellingForm"
+            app:destination="@id/refuellingForm" />
     </fragment>
 </navigation>
