@@ -9,12 +9,12 @@ import tomasz.kopycinski.lab_11_15.persistence.entity.VehicleWithRefuellings
 
 class Repository(private val vehicleDAO: VehicleDAO,
                  private val refuellingDAO: RefuellingDAO) {
-    fun getVehicles(): LiveData<List<Vehicle>> {
-        return vehicleDAO.getAll()
-    }
-
     fun getVehicle(id: Int): LiveData<Vehicle> {
         return vehicleDAO.get(id)
+    }
+
+    fun getVehicles(): LiveData<List<Vehicle>> {
+        return vehicleDAO.getAll()
     }
 
     fun getVehicleWithRefuellings(id: Int): LiveData<VehicleWithRefuellings> {
@@ -31,6 +31,10 @@ class Repository(private val vehicleDAO: VehicleDAO,
 
     suspend fun deleteVehicle(vehicle: Vehicle) {
         vehicleDAO.delete(vehicle)
+    }
+
+    fun getRefuelling(id: Int): LiveData<Refueling> {
+        return refuellingDAO.get(id)
     }
 
     fun getRefuellingsByVehicleId(vehicleId: Int): LiveData<List<Refueling>> {
