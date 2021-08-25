@@ -10,15 +10,18 @@
     <string name="brand">Marka</string>
     <string name="model">Model</string>
     <string name="plate_number">Numer rejestracyjny</string>
-    <string name="date">Data</string>
+    <string name="date">Data tankowania</string>
     <string name="price">Cena</string>
     <string name="price_per_liter">Cena za litr</string>
     <string name="place">Miejsce tankowania</string>
     <string name="mileage">Przebieg</string>
     <string name="save">Zapisz</string>
+    <string name="consumption">Spalanie</string>
+    <string name="distance_since_refuelled">Dystans od ostatniego tankowania</string>
     <string name="empty_fields">Wypełnij wszystkie pola</string>
     <string name="date_format">%1$d.%2$d.%3$d r.</string>
     <string name="currency">%1$.2f zł</string>
+    <string name="distance_unit">%1$d km</string>
     <string-array name="months">
         <item>Styczeń</item>
         <item>Luty</item>

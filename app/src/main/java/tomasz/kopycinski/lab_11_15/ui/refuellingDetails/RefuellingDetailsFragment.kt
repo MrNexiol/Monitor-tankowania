@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentRefuellingDetailsBinding
+import java.time.format.DateTimeFormatter
 
 class RefuellingDetailsFragment : Fragment() {
     private var _binding: FragmentRefuellingDetailsBinding? = null
@@ -27,5 +28,19 @@ class RefuellingDetailsFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(RefuellingDetailsViewModel::class.java)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.refuelling.observe(viewLifecycleOwner, { refuelling ->
+            binding.refuellingPrice.text = getString(R.string.currency, refuelling.price)
+            binding.refuellingPricePerLiter.text = getString(R.string.currency, refuelling.pricePerLiter)
+            binding.refuellingConsumption.text = refuelling.consumption.toString()
+            binding.refuellingMileage.text = getString(R.string.distance_unit, refuelling.mileage)
+            binding.refuellingPlace.text = refuelling.place
+            binding.refuellingDate.text = refuelling.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+            binding.refuellingDistance.text = getString(R.string.distance_unit, refuelling.distanceSinceRefuelled)
+        })
     }
 }

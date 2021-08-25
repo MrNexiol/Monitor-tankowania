@@ -1,14 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.refuellingDetails.RefuellingDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/refuelling_price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_place_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_place_text_view"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/refuelling_price_per_liter_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price_per_liter"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_mileage_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_mileage_text_view"
+        app:layout_constraintTop_toTopOf="@+id/refuelling_price_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_price_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_price_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_price_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_price_per_liter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_price_per_liter_textView"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_price_per_liter_textView"
+        app:layout_constraintTop_toTopOf="@+id/refuelling_price" />
+
+    <TextView
+        android:id="@+id/refuelling_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/consumption"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_place_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_place_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_price" />
+
+    <TextView
+        android:id="@+id/refuelling_mileage_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mileage"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_date_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_date_text_view"
+        app:layout_constraintTop_toTopOf="@+id/refuelling_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_consumption_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_mileage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_mileage_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_mileage_text_view"
+        app:layout_constraintTop_toTopOf="@+id/refuelling_consumption" />
+
+    <TextView
+        android:id="@+id/refuelling_place_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/place"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/refuelling_date_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_consumption" />
+
+    <TextView
+        android:id="@+id/refuelling_date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/refuelling_place_text_view"
+        app:layout_constraintTop_toTopOf="@+id/refuelling_place_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_place_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_place_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_place_text_view" />
+
+    <TextView
+        android:id="@+id/refuelling_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_date_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_date_text_view"
+        app:layout_constraintTop_toTopOf="@+id/refuelling_place" />
+
+    <TextView
+        android:id="@+id/refuelling_distance_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/distance_since_refuelled"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_place" />
+
+    <TextView
+        android:id="@+id/refuelling_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/refuelling_distance_text_view"
+        app:layout_constraintStart_toStartOf="@+id/refuelling_distance_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/refuelling_distance_text_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
