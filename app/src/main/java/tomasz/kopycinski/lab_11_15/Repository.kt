@@ -33,6 +33,10 @@ class Repository(private val vehicleDAO: VehicleDAO,
         vehicleDAO.delete(vehicle)
     }
 
+    fun getRefuellingsByVehicleId(vehicleId: Int): LiveData<List<Refueling>> {
+        return refuellingDAO.getAllByVehicleId(vehicleId)
+    }
+
     suspend fun insertRefuelling(refueling: Refueling) {
         refuellingDAO.insert(refueling)
     }

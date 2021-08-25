@@ -2,7 +2,6 @@ package tomasz.kopycinski.lab_11_15.ui.vehicleDetails
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -44,13 +43,28 @@ class VehicleDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.vehicleWithRefuellings.observe(viewLifecycleOwner, {
-            vehicle = it.vehicle
-            binding.brand.text = it.vehicle.brand
-            binding.model.text = it.vehicle.model
-            binding.licensePlate.text = it.vehicle.licensePlate
-            binding.checkDate.text = it.vehicle.date.toString()
-            adapter.setData(it.refuellings)
+        viewModel.vehicle.observe(viewLifecycleOwner, {
+            vehicle = it
+            binding.brand.text = it.brand
+            binding.model.text = it.model
+            binding.licensePlate.text = it.licensePlate
+            binding.checkDate.text = it.date.toString()
+        })
+
+        viewModel.refuellings.observe(viewLifecycleOwner, {
+            val refuellingsList = mutableListOf<Any>()
+            var currentMonth = 0
+
+            for (refuelling in it) {
+                if (refuelling.date.monthValue != currentMonth) {
+                    currentMonth = refuelling.date.monthValue
+                    val item = "${resources.getStringArray(R.array.months)[currentMonth]} ${refuelling.date.year}"
+                    refuellingsList.add(item)
+                }
+                refuellingsList.add(refuelling)
+            }
+
+            adapter.setData(refuellingsList)
         })
 
         binding.addRefuellingButton.setOnClickListener {

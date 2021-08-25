@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleFormBinding
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
-import java.util.*
+import java.time.LocalDate
 
 class VehicleFormFragment : Fragment() {
     private var _binding: FragmentVehicleFormBinding? = null
@@ -56,7 +56,7 @@ class VehicleFormFragment : Fragment() {
                     vehicle!!.licensePlate = plateNumber
                     viewModel.updateVehicle(vehicle!!)
                 } else {
-                    val vehicleToSave = Vehicle(brand, model, plateNumber, Date(System.currentTimeMillis()))
+                    val vehicleToSave = Vehicle(brand, model, plateNumber, LocalDate.now())
                     viewModel.insertVehicle(vehicleToSave)
                 }
             }

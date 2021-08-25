@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentRefuellingFormBinding
 import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
-import java.util.*
+import java.time.LocalDate
 
 class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private var _binding: FragmentRefuellingFormBinding? = null
@@ -33,16 +33,16 @@ class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
         binding.dateInput.setText(
             getString(R.string.date_format,
-            viewModel.calendar.get(Calendar.DAY_OF_MONTH),
-            viewModel.calendar.get(Calendar.MONTH),
-            viewModel.calendar.get(Calendar.YEAR)))
+            viewModel.localDate.dayOfMonth,
+            viewModel.localDate.monthValue,
+            viewModel.localDate.year))
 
         binding.dateInput.setOnClickListener {
             val datePickerDialog = DatePickerDialog(
                 requireContext(),this,
-                viewModel.calendar.get(Calendar.YEAR),
-                viewModel.calendar.get(Calendar.MONTH),
-                viewModel.calendar.get(Calendar.DAY_OF_MONTH))
+                viewModel.localDate.year,
+                viewModel.localDate.monthValue,
+                viewModel.localDate.dayOfMonth)
             datePickerDialog.show()
         }
 
@@ -51,17 +51,14 @@ class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             val pricePerLiter = binding.pricePerLiterInput.text.toString().toDouble()
             val place = binding.placeInput.text.toString()
             val mileage = binding.mileageInput.text.toString().toInt()
-            val date: Date = viewModel.calendar.time
 
-            val refuelling = Refueling(navArgs.vehicleId, date, price, pricePerLiter, place, mileage)
+            val refuelling = Refueling(navArgs.vehicleId, viewModel.localDate, price, pricePerLiter, place, mileage)
             viewModel.insertRefuelling(refuelling)
         }
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        viewModel.calendar.set(Calendar.YEAR, year)
-        viewModel.calendar.set(Calendar.MONTH, month)
-        viewModel.calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+        viewModel.localDate = LocalDate.of(year, month, dayOfMonth)
         binding.dateInput.setText(getString(R.string.date_format, dayOfMonth, month, year))
     }
 }
