@@ -27,16 +27,6 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/place_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/place"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:autofillHints="false" />
-
-    <EditText
         android:id="@+id/mileage_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,6 +35,27 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:autofillHints="false" />
+
+    <EditText
+        android:id="@+id/consumption_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="false"
+        android:ems="10"
+        android:hint="@string/consumption"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/place_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="false"
+        android:ems="10"
+        android:hint="@string/place"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/date_input"
@@ -58,7 +69,8 @@
         android:focusableInTouchMode="false"
         android:hint="@string/date"
         android:inputType="date"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/save_button"

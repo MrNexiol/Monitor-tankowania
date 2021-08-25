@@ -13,7 +13,7 @@ data class Refueling(
     @ColumnInfo(name = "price_per_liter") var pricePerLiter: Double?,
     @ColumnInfo(name = "place") var place: String?,
     @ColumnInfo(name = "mileage") var mileage: Int?,
-    @ColumnInfo(name = "consumption") val consumption: Double? = null,
+    @ColumnInfo(name = "consumption") var consumption: Double? = null,
     @ColumnInfo(name = "distance_since_refuelled") val distanceSinceRefuelled: Int? = null,
     @PrimaryKey(autoGenerate = true) val uid: Int = 0
 )

@@ -15,7 +15,7 @@
     <string name="place">Miejsce tankowania</string>
     <string name="mileage">Przebieg</string>
     <string name="save">Zapisz</string>
-    <string name="consumption">Spalanie</string>
+    <string name="consumption">Spalanie na 100km</string>
     <string name="distance_since_refuelled">Dystans od ostatniego tankowania</string>
     <string name="empty_fields">Wypełnij wszystkie pola</string>
     <string name="date_format">%1$d.%2$d.%3$d r.</string>

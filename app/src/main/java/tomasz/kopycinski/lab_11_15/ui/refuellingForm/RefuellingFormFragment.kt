@@ -46,8 +46,9 @@ class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                 refuellingToEdit = it
                 binding.priceInput.setText(it.price.toString())
                 binding.pricePerLiterInput.setText(it.pricePerLiter.toString())
-                binding.placeInput.setText(it.place)
                 binding.mileageInput.setText(it.mileage.toString())
+                binding.consumptionInput.setText(it.consumption.toString())
+                binding.placeInput.setText(it.place)
                 binding.dateInput.setText(it.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
                 viewModel.localDate = it.date
                 viewModel.isEditing = true
@@ -66,18 +67,20 @@ class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         binding.saveButton.setOnClickListener {
             val price = binding.priceInput.text.toString().toDouble()
             val pricePerLiter = binding.pricePerLiterInput.text.toString().toDouble()
-            val place = binding.placeInput.text.toString()
             val mileage = binding.mileageInput.text.toString().toInt()
+            val consumption = binding.consumptionInput.text.toString().toDouble()
+            val place = binding.placeInput.text.toString()
 
             if (viewModel.isEditing) {
                 refuellingToEdit.price = price
                 refuellingToEdit.pricePerLiter = pricePerLiter
-                refuellingToEdit.place = place
                 refuellingToEdit.mileage = mileage
+                refuellingToEdit.consumption = consumption
+                refuellingToEdit.place = place
                 refuellingToEdit.date = viewModel.localDate
                 viewModel.updateRefuelling(refuellingToEdit)
             } else {
-                val refuellingToInsert = Refueling(navArgs.vehicleId, viewModel.localDate, price, pricePerLiter, place, mileage)
+                val refuellingToInsert = Refueling(navArgs.vehicleId, viewModel.localDate, price, pricePerLiter, place, mileage, consumption)
                 viewModel.insertRefuelling(refuellingToInsert)
             }
             findNavController().navigateUp()
