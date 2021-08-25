@@ -18,6 +18,7 @@
     <string name="save">Zapisz</string>
     <string name="empty_fields">Wypełnij wszystkie pola</string>
     <string name="date_format">%1$d.%2$d.%3$d r.</string>
+    <string name="currency">%1$.2f zł</string>
     <string-array name="months">
         <item>Styczeń</item>
         <item>Luty</item>

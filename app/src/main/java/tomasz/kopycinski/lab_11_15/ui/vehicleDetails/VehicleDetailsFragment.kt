@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleDetailsBinding
+import tomasz.kopycinski.lab_11_15.persistence.RefuellingHeader
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 
 class VehicleDetailsFragment : Fragment() {
@@ -52,19 +53,32 @@ class VehicleDetailsFragment : Fragment() {
         })
 
         viewModel.refuellings.observe(viewLifecycleOwner, {
-            val refuellingsList = mutableListOf<Any>()
-            var currentMonth = 0
+            val adapterList = mutableListOf<Any>()
+            val refuellingsGroupedByMonth = it.groupBy { refuelling -> Pair(refuelling.date.monthValue, refuelling.date.year) }
 
-            for (refuelling in it) {
-                if (refuelling.date.monthValue != currentMonth) {
-                    currentMonth = refuelling.date.monthValue
-                    val item = "${resources.getStringArray(R.array.months)[currentMonth]} ${refuelling.date.year}"
-                    refuellingsList.add(item)
+            for ((pair, refuellings) in refuellingsGroupedByMonth) {
+                var monthPrice = 0.0
+
+                for (refuelling in refuellings) {
+                    monthPrice += refuelling.price
                 }
-                refuellingsList.add(refuelling)
+                val title = "${resources.getStringArray(R.array.months)[pair.first]} ${pair.second}"
+                adapterList.add((RefuellingHeader(title, monthPrice)))
+                adapterList.addAll(refuellings)
             }
 
-            adapter.setData(refuellingsList)
+//            var currentMonth = 0
+//
+//            for (refuelling in it) {
+//                if (refuelling.date.monthValue != currentMonth) {
+//                    currentMonth = refuelling.date.monthValue
+//                    val item = "${resources.getStringArray(R.array.months)[currentMonth]} ${refuelling.date.year}"
+//                    adapterList.add(item)
+//                }
+//                adapterList.add(refuelling)
+//            }
+
+            adapter.setData(adapterList)
         })
 
         binding.addRefuellingButton.setOnClickListener {
