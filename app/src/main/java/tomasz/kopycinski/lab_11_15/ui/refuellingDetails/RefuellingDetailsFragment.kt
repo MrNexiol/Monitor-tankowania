@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentRefuellingDetailsBinding
+import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
 import java.time.format.DateTimeFormatter
 
 class RefuellingDetailsFragment : Fragment() {
@@ -16,6 +17,7 @@ class RefuellingDetailsFragment : Fragment() {
     private val navArgs: RefuellingDetailsFragmentArgs by navArgs()
     private lateinit var viewModel: RefuellingDetailsViewModel
     private lateinit var viewModelFactory: RefuellingDetailsViewModelFactory
+    private lateinit var refuelling: Refueling
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,7 @@ class RefuellingDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.refuelling.observe(viewLifecycleOwner, { refuelling ->
+            this.refuelling = refuelling
             binding.refuellingPrice.text = getString(R.string.currency, refuelling.price)
             binding.refuellingPricePerLiter.text = getString(R.string.currency, refuelling.pricePerLiter)
             binding.refuellingConsumption.text = refuelling.consumption.toString()
@@ -60,6 +63,8 @@ class RefuellingDetailsFragment : Fragment() {
                 true
             }
             R.id.remove_item -> {
+                viewModel.deleteRefuelling(refuelling)
+                findNavController().navigateUp()
                 true
             }
             else -> super.onOptionsItemSelected(item)
