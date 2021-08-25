@@ -8,7 +8,7 @@ import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
 
 @Dao
 interface RefuellingDAO {
-    @Query("SELECT * FROM Refueling WHERE vehicle_id=:vehicleId ORDER BY date DESC")
+    @Query("SELECT price, place, date, uid, vehicle_id FROM Refueling WHERE vehicle_id=:vehicleId ORDER BY date DESC")
     fun getAllByVehicleId(vehicleId: Int): LiveData<List<Refueling>>
 
     @Insert
