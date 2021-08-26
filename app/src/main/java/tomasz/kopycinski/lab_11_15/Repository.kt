@@ -38,8 +38,8 @@ class Repository(private val vehicleDAO: VehicleDAO,
         return refuellingDAO.get(id)
     }
 
-    fun getRefuellingsByVehicleId(vehicleId: Int): LiveData<List<Refueling>> {
-        return refuellingDAO.getAllByVehicleId(vehicleId)
+    fun getRefuellingPrices(): LiveData<List<Refueling>> {
+        return refuellingDAO.getAllPrices()
     }
 
     fun getMinRefuellingConsumption(): LiveData<Double> {

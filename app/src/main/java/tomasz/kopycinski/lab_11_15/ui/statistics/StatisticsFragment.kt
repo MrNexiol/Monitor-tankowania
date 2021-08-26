@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentStatisticsBinding
+import tomasz.kopycinski.lab_11_15.persistence.RefuellingHeader
 
 class StatisticsFragment : Fragment() {
     private var _binding: FragmentStatisticsBinding? = null
@@ -42,6 +43,23 @@ class StatisticsFragment : Fragment() {
         })
         viewModel.favouritePlace.observe(viewLifecycleOwner, {
             binding.favouritePlace.text = it
+        })
+        viewModel.allRefuellings.observe(viewLifecycleOwner, {
+            val refuellingsGroupedByMonth = it.groupBy { refuelling -> Pair(refuelling.date.monthValue, refuelling.date.year) }
+            var moneySum = 0.0
+            var divider = 0
+
+            for ((_, refuellings) in refuellingsGroupedByMonth) {
+                divider++
+                var monthPrice = 0.0
+
+                for (refuelling in refuellings) {
+                    monthPrice += refuelling.price
+                }
+                moneySum+=monthPrice
+            }
+            val averagePrice = moneySum / divider
+            binding.averageExpenses.text = getString(R.string.currency, averagePrice)
         })
     }
 }

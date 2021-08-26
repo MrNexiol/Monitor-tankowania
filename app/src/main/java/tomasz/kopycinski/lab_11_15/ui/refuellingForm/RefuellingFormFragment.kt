@@ -89,6 +89,6 @@ class RefuellingFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         viewModel.localDate = LocalDate.of(year, month+1, dayOfMonth)
-        binding.dateInput.setText(getString(R.string.date_format, dayOfMonth, month, year))
+        binding.dateInput.setText(getString(R.string.date_format, dayOfMonth, month+1, year))
     }
 }

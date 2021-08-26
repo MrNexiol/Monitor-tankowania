@@ -13,4 +13,5 @@ class StatisticsViewModel : ViewModel() {
     val minConsumption = AppContainer.repository.getMinRefuellingConsumption()
     val maxConsumption = AppContainer.repository.getMaxRefuellingConsumption()
     val favouritePlace = AppContainer.repository.getFavouriteRefuellingPlace()
+    val allRefuellings = AppContainer.repository.getRefuellingPrices()
 }

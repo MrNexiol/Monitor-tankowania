@@ -7,8 +7,8 @@ import java.time.LocalDate
 
 @Dao
 interface RefuellingDAO {
-    @Query("SELECT price, place, date, uid, vehicle_id FROM Refueling WHERE vehicle_id=:vehicleId ORDER BY date DESC")
-    fun getAllByVehicleId(vehicleId: Int): LiveData<List<Refueling>>
+    @Query("SELECT price, date, uid, vehicle_id FROM Refueling ORDER BY date DESC")
+    fun getAllPrices(): LiveData<List<Refueling>>
 
     @Query("SELECT MIN(consumption) FROM Refueling")
     fun getMinConsumption(): LiveData<Double>
