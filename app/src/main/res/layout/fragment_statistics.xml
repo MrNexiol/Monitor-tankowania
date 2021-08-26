@@ -1,14 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.statistics.StatisticsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/average_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/avg_consumption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/day_30_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/day_30"
+        app:layout_constraintEnd_toStartOf="@+id/day_365_consumption_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/average_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/day_30_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/day_30_consumption_text_view"
+        app:layout_constraintStart_toStartOf="@+id/day_30_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/day_30_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/day_120_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/day_365"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/day_365_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/average_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/day_120_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/day_365_consumption_text_view"
+        app:layout_constraintStart_toStartOf="@+id/day_365_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/day_365_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/day_365_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/day_120"
+        app:layout_constraintEnd_toStartOf="@+id/day_120_consumption_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/day_30_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/average_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/day_365_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/day_120_consumption_text_view"
+        app:layout_constraintStart_toStartOf="@+id/day_120_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/day_120_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/min_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/min_consumption"
+        app:layout_constraintEnd_toStartOf="@+id/max_consumption_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day_30_consumption" />
+
+    <TextView
+        android:id="@+id/min_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/min_consumption_text_view"
+        app:layout_constraintStart_toStartOf="@+id/min_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/min_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/max_consumption_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/max_consumption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/min_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/day_365_consumption" />
+
+    <TextView
+        android:id="@+id/max_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/max_consumption_text_view"
+        app:layout_constraintStart_toStartOf="@+id/max_consumption_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/max_consumption_text_view" />
+
+    <TextView
+        android:id="@+id/favourite_place_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favourite_place"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/min_consumption" />
+
+    <TextView
+        android:id="@+id/favourite_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/favourite_place_text_view"
+        app:layout_constraintStart_toStartOf="@+id/favourite_place_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/favourite_place_text_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

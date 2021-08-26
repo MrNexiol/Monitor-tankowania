@@ -17,6 +17,14 @@
     <string name="mileage">Przebieg</string>
     <string name="save">Zapisz</string>
     <string name="consumption">Spalanie na 100km</string>
+    <string name="avg_consumption">Średnie spalanie na 100km z:</string>
+    <string name="favourite_place">Ulubiona stacja</string>
+    <string name="liters">%1.2f L</string>
+    <string name="day_30">30 dni</string>
+    <string name="day_120">120 dni</string>
+    <string name="day_365">365 dni</string>
+    <string name="min_consumption">Najmniejsze spalanie</string>
+    <string name="max_consumption">Największe spalanie</string>
     <string name="distance_since_refuelled">Dystans od ostatniego tankowania</string>
     <string name="empty_fields">Wypełnij wszystkie pola</string>
     <string name="date_format">%1$d.%2$d.%3$d r.</string>

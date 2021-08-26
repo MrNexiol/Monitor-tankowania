@@ -6,6 +6,7 @@ import tomasz.kopycinski.lab_11_15.persistence.dao.VehicleDAO
 import tomasz.kopycinski.lab_11_15.persistence.entity.Refueling
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 import tomasz.kopycinski.lab_11_15.persistence.entity.VehicleWithRefuellings
+import java.time.LocalDate
 
 class Repository(private val vehicleDAO: VehicleDAO,
                  private val refuellingDAO: RefuellingDAO) {
@@ -39,6 +40,22 @@ class Repository(private val vehicleDAO: VehicleDAO,
 
     fun getRefuellingsByVehicleId(vehicleId: Int): LiveData<List<Refueling>> {
         return refuellingDAO.getAllByVehicleId(vehicleId)
+    }
+
+    fun getMinRefuellingConsumption(): LiveData<Double> {
+        return refuellingDAO.getMinConsumption()
+    }
+
+    fun getAvgRefuellingConsumptionFromDate(localDate: LocalDate): LiveData<Double> {
+        return refuellingDAO.getAverageConsumption(localDate)
+    }
+
+    fun getMaxRefuellingConsumption(): LiveData<Double> {
+        return refuellingDAO.getMaxConsumption()
+    }
+
+    fun getFavouriteRefuellingPlace(): LiveData<String> {
+        return refuellingDAO.getFavouritePlace()
     }
 
     suspend fun insertRefuelling(refueling: Refueling) {
