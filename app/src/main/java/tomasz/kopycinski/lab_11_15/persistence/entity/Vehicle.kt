@@ -10,6 +10,6 @@ data class Vehicle(
     @ColumnInfo(name = "brand") var brand: String,
     @ColumnInfo(name = "model") var model: String,
     @ColumnInfo(name = "licensePlate") var licensePlate: String,
-    @ColumnInfo(name = "date") var date: LocalDate,
+    @ColumnInfo(name = "check_date") var checkDate: LocalDate,
     @PrimaryKey(autoGenerate = true) val uid: Int = 0
 )

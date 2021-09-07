@@ -1,10 +1,12 @@
 package tomasz.kopycinski.lab_11_15.ui.vehicleForm
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,8 +15,9 @@ import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleFormBinding
 import tomasz.kopycinski.lab_11_15.persistence.entity.Vehicle
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-class VehicleFormFragment : Fragment() {
+class VehicleFormFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private var _binding: FragmentVehicleFormBinding? = null
     private val binding get() = _binding!!
     private val navArgs: VehicleFormFragmentArgs by navArgs()
@@ -33,15 +36,28 @@ class VehicleFormFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.checkDateInput.setText(viewModel.localDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
+
         viewModel.vehicle.observe(viewLifecycleOwner, {
             it?.let {
                 vehicle = it
                 binding.brandInput.setText(vehicle!!.brand)
                 binding.modelInput.setText(vehicle!!.model)
                 binding.plateNumberInput.setText(vehicle!!.licensePlate)
+                binding.checkDateInput.setText(vehicle!!.checkDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
+                viewModel.localDate = vehicle!!.checkDate
                 isEditing = true
             }
         })
+
+        binding.checkDateInput.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),this,
+                viewModel.localDate.year,
+                viewModel.localDate.monthValue-1,
+                viewModel.localDate.dayOfMonth)
+            datePickerDialog.show()
+        }
 
         binding.addVehicleButton.setOnClickListener {
             val brand = binding.brandInput.text.toString()
@@ -55,13 +71,19 @@ class VehicleFormFragment : Fragment() {
                     vehicle!!.brand = brand
                     vehicle!!.model = model
                     vehicle!!.licensePlate = plateNumber
+                    vehicle!!.checkDate = viewModel.localDate
                     viewModel.updateVehicle(vehicle!!)
                 } else {
-                    val vehicleToSave = Vehicle(brand, model, plateNumber, LocalDate.now())
+                    val vehicleToSave = Vehicle(brand, model, plateNumber, viewModel.localDate)
                     viewModel.insertVehicle(vehicleToSave)
                     findNavController().navigateUp()
                 }
             }
         }
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        viewModel.localDate = LocalDate.of(year, month+1, dayOfMonth)
+        binding.checkDateInput.setText(getString(R.string.date_format, dayOfMonth, month+1, year))
     }
 }

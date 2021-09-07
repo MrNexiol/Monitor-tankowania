@@ -47,7 +47,7 @@ class RefuellingDetailsFragment : Fragment() {
             binding.refuellingMileage.text = getString(R.string.distance_unit, refuelling.mileage)
             binding.refuellingPlace.text = refuelling.place
             binding.refuellingDate.text = refuelling.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
-            binding.refuellingDistance.text = getString(R.string.distance_unit, refuelling.distanceSinceRefuelled)
+            binding.refuellingDistance.text = getString(R.string.distance_unit, 312)
         })
     }
 

@@ -8,6 +8,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import tomasz.kopycinski.lab_11_15.R
 import tomasz.kopycinski.lab_11_15.databinding.FragmentVehicleListBinding
+import tomasz.kopycinski.lab_11_15.ui.MainActivity
+import java.time.LocalDate
 
 class VehicleListFragment : Fragment() {
     private var _binding: FragmentVehicleListBinding? = null
@@ -34,6 +36,13 @@ class VehicleListFragment : Fragment() {
 
         viewModel.vehicleList.observe(viewLifecycleOwner, {
             adapter.setData(it)
+
+            for (vehicle in it) {
+                if (vehicle.checkDate <= LocalDate.now().plusDays(7) &&
+                    vehicle.checkDate > LocalDate.now()) {
+                    (requireActivity() as MainActivity).setAlert("siemanko")
+                }
+            }
         })
     }
 

@@ -35,8 +35,23 @@
         android:ems="10"
         android:hint="@string/plate_number"
         android:inputType="textPersonName"
-        tools:ignore="TextFields"
-        android:minHeight="48dp"/>
+        android:minHeight="48dp"
+        tools:ignore="TextFields,TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/check_date_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="false"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/check_date"
+        android:inputType="date"
+        android:minHeight="48dp"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/add_vehicle_button"
